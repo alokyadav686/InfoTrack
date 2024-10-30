@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1056674609768",
+    "project_id": "infotrack-114ef",
+    "storage_bucket": "infotrack-114ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056674609768:android:bebe2e6de7ae4f792999dd",
+        "android_client_info": {
+          "package_name": "com.example.infotrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeHXVDXl7SH4EspOpAk-l_pu_RHNKnj9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
