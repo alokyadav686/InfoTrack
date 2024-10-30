@@ -12,6 +12,9 @@ class Loginscreen extends StatefulWidget {
   State<Loginscreen> createState() => _LoginscreenState();
 }
 
+
+class _LoginscreenState extends State<Loginscreen> {
+
 final _formKey = GlobalKey<FormState>();
 final emailController = TextEditingController();
 final passwordController = TextEditingController();
@@ -20,13 +23,12 @@ final _auth = FirebaseAuth.instance;
 
 
 
-@override
+  @override
 void dispose(){
   super.dispose();
   emailController.dispose();
   passwordController.dispose();
   
-
 }
 
 void login(){
@@ -43,7 +45,10 @@ void login(){
     });
 }
 
-class _LoginscreenState extends State<Loginscreen> {
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
