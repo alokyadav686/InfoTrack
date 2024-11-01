@@ -42,7 +42,7 @@ class _SplashscreenState extends State<Splashscreen> {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/splashbg.png"),fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("assets/images/splashbg1.png"),fit: BoxFit.cover),
           
         ),
       )
