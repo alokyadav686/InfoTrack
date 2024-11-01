@@ -32,147 +32,188 @@ class _SignupscreenState extends State<Signupscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading:  false,
-        title: Center(child: Text("InfoTrack")),
-       backgroundColor: Colors.blueGrey,
+      // appBar: AppBar(
+      //   automaticallyImplyLeading:  false,
+      //   title: Center(child: Text("InfoTrack")),
+      //  backgroundColor: Colors.blueGrey,
        
-       ),
+      //  ),
      
       
 
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Form(
-                key: _formKey,
-                
-                child: Column(
-                  children: [
-                    
-                  TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    prefixIcon: Icon(Icons.email_outlined),
-                  ),
-
-                  validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter email';
-                      }
-                      else{
-                        return null;
-                      }
-                  },
-                ),
-          
-                  SizedBox(height: 10,),
-                 TextFormField(
-                  keyboardType: TextInputType.text,
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    prefixIcon: Icon(Icons.lock_outline_rounded),
-                    // suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                  ),
-                  validator: (value){
-                      if(value!.isEmpty){
-                        return "Enter password";
-                      }
-                      else{
-                        return null;
-                      }
-                  },
-                ),
-
-                  SizedBox(height: 10,),
-                 TextFormField(
-                  keyboardType: TextInputType.text,
-                  controller: confirmpasswordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Confirm Password',
-                    prefixIcon: Icon(Icons.lock_outline_rounded),
-                  ),
-                  validator: (value){
-                      if(value!.isEmpty){
-                          return "enter confirm password";
-                      }
-                     else if(value!=passwordController.text) {
-                        return "Passwords do not match";
-                      }
-                      else{
-                        return null;
-                      }
-                  },
-                ),
-
-                  ],
-              )),
-
-                  SizedBox(height: 40,),
-
-              InkWell(
-                onTap: ()=>{
-
-                    if(_formKey.currentState!.validate()){
-                      _auth.createUserWithEmailAndPassword(
-                        email: emailController.text.toString(),
-                       password: passwordController.text.toString()).then((value){
-
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+         decoration: BoxDecoration(
+           gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.deepPurpleAccent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Form(
+                  key: _formKey,
+                  
+                  child: Column(
+                    children: [
+                      
+        
+                     Column(
+        
+                          children: [
+                            Text("Create an Account!", style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,color: Colors.white),),
+                             SizedBox(height: 20),
+                             Text("Know your info", style: TextStyle(fontSize: 18,color: Colors.white70),)
+                          ],
+        
                           
-                        
-
-                       }).onError((error, stackTrace) {
-                          utils().toastMessage(error.toString());
-
-                       },)
-                       
-                    }
-                  
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 35,
-                  
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey,
-                    borderRadius: BorderRadius.circular(20),
+        
+        
+                        ),
+                         SizedBox(height: 40),
+                      
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      hintStyle: TextStyle(color: Colors.white70),
+                      prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
+                      border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                    ),
+        
+                    validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter email';
+                        }
+                        else{
+                          return null;
+                        }
+                    },
                   ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Sign Up", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500, color: Colors.white),),
-                      ],
+            
+                    SizedBox(height: 15,),
+                   TextFormField(
+                    keyboardType: TextInputType.text,
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: TextStyle(color: Colors.white70),
+                      prefixIcon: Icon(Icons.lock_outline_rounded,color: Colors.white,),
+                      border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                      // suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                    ),
+                    validator: (value){
+                        if(value!.isEmpty){
+                          return "Enter password";
+                        }
+                        else{
+                          return null;
+                        }
+                    },
+                  ),
+        
+                    SizedBox(height: 15,),
+                   TextFormField(
+                    keyboardType: TextInputType.text,
+                    controller: confirmpasswordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Confirm Password',
+                      hintStyle: TextStyle(color: Colors.white70),
+                      prefixIcon: Icon(Icons.lock_outline_rounded,color: Colors.white,),
+                      border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                    ),
+                    validator: (value){
+                        if(value!.isEmpty){
+                            return "enter confirm password";
+                        }
+                       else if(value!=passwordController.text) {
+                          return "Passwords do not match";
+                        }
+                        else{
+                          return null;
+                        }
+                    },
+                  ),
+        
+                    ],
+                )),
+        
+                    SizedBox(height: 40,),
+        
+                InkWell(
+                  onTap: ()=>{
+        
+                      if(_formKey.currentState!.validate()){
+                        _auth.createUserWithEmailAndPassword(
+                          email: emailController.text.toString(),
+                         password: passwordController.text.toString()).then((value){
+        
+                            
+                          
+        
+                         }).onError((error, stackTrace) {
+                            utils().toastMessage(error.toString());
+        
+                         },)
+                         
+                      }
+                    
+                  },
+                  child: Container(
+                    width: 160,
+                    height: 45,
+                    
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Sign Up", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600, color: Colors.deepPurple),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-
-              SizedBox(height: 10,),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Already have an account?",style: TextStyle(fontSize: 15),),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Loginscreen()));
-              }, 
-              
-              child: 
-                Text("Login"),
-              )
-
-                ],
-              ),
-            ],
+        
+                SizedBox(height: 10,),
+        
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Already have an account?",style: TextStyle(fontSize: 16, color: Colors.white),),
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Loginscreen()));
+                }, 
+                
+                child: 
+                  Text("Login",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),),
+                )
+        
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
