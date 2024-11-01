@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:infotrack/ui/loginscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:infotrack/utils/utils.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
@@ -123,8 +124,16 @@ class _SignupscreenState extends State<Signupscreen> {
                     if(_formKey.currentState!.validate()){
                       _auth.createUserWithEmailAndPassword(
                         email: emailController.text.toString(),
-                       password: passwordController.text.toString())
+                       password: passwordController.text.toString()).then((value){
 
+                          
+                        
+
+                       }).onError((error, stackTrace) {
+                          utils().toastMessage(error.toString());
+
+                       },)
+                       
                     }
                   
                 },
