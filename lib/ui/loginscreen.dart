@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infotrack/mainscreen/firstscreen.dart';
+import 'package:infotrack/ui/phonenumberscreen.dart';
 import 'package:infotrack/ui/signupscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:infotrack/utils/utils.dart'; 
@@ -157,6 +158,48 @@ void login(){
 
                 ],
               ),
+
+              SizedBox(height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Or"),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Column(
+                children: [
+                 InkWell(
+                onTap: ()=>{
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Phonenumberscreen())),
+
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 35,
+                  
+                  decoration: BoxDecoration(
+                    // color: Colors.blueGrey,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.blueGrey)
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Login with Phone", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500, color: Colors.black),),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+                ],
+              ),
+
+
+
             ],
           ),
         ),
