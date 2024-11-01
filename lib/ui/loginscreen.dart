@@ -53,154 +53,196 @@ void login(){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading:  false,
-        title: Center(child: Text("InfoTrack")),
-       backgroundColor: Colors.blueGrey,
+      // appBar: AppBar(
+      //   automaticallyImplyLeading:  false,
+      //   title: Center(child: Text("InfoTrack")),
+      //  backgroundColor: Colors.blueGrey,
        
-       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Form(
-                key: _formKey,
-                
-                child: Column(
-                  children: [
-                    
-                  TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    prefixIcon: Icon(Icons.email_outlined),
-                  ),
+      //  ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+           gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.deepPurpleAccent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Form(
+                  key: _formKey,
+                  
+                  child: Column(
+                    children: [
+                      Column(
 
-                  validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter email';
-                      }
-                      else{
-                        return null;
-                      }
-                  },
-                ),
-          
-                  SizedBox(height: 10,),
-                 TextFormField(
-                  keyboardType: TextInputType.text,
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    prefixIcon: Icon(Icons.lock_outline_rounded),
-                  ),
-                  validator: (value){
-                      if(value!.isEmpty){
-                        return "Enter password";
-                      }
-                      else{
-                        return null;
-                      }
-                  },
-                ),
+                        children: [
+                          Text("Welcome Back!", style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold,color: Colors.white),),
+                           SizedBox(height: 20),
+                           Text("Login to your account", style: TextStyle(fontSize: 18,color: Colors.white70),)
+                        ],
 
-                  ],
-              )),
+                        
 
-                  SizedBox(height: 40,),
 
-              InkWell(
-                onTap: ()=>{
-
-                    if(_formKey.currentState!.validate()){
-
-                      login(), 
-                      print("everything is filled"),
-                      
+                      ),
+                      SizedBox(height: 40),
+                    TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      hintStyle: TextStyle(color: Colors.white70),
+                      prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
+                      border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                          
+                    ),
+        
+                    validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter email';
+                        }
+                        else{
+                          return null;
+                        }
                     },
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 35,
-                  
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey,
-                    borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Login", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500, color: Colors.white),),
-                      ],
+            
+                    SizedBox(height: 15,),
+                   TextFormField(
+                    keyboardType: TextInputType.text,
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: TextStyle(color: Colors.white70),
+                      prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
+                      border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(color: Colors.white),
+                              
+                            ),
+                          
+                    ),
+                    validator: (value){
+                        if(value!.isEmpty){
+                          return "Enter password";
+                        }
+                        else{
+                          return null;
+                        }
+                    },
+                  ),
+        
+                    ],
+                )),
+        
+                    SizedBox(height: 30,),
+        
+                InkWell(
+                  onTap: ()=>{
+        
+                      if(_formKey.currentState!.validate()){
+        
+                        login(), 
+                        print("everything is filled"),
+                        
+                      },
+                  },
+                  child: Container(
+                    width: 150,
+                    height: 45,
+                    
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Login", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600, color: Colors.deepPurple),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+        
+                SizedBox(height: 20,),
+        
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have an account?",style: TextStyle(color: Colors.white,),),
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
+                }, 
+                
+                child: 
+                  Text("Sign Up", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                )
+        
+                  ],
+                ),
+        
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Or", style: TextStyle(color: Colors.white,)),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Column(
+                  children: [
+                   InkWell(
+                  onTap: ()=>{
+        
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Phonenumberscreen()))
+        
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    
+                    decoration: BoxDecoration(
+                      // color: Colors.blueGrey,
+                      gradient: LinearGradient(
+                          colors: [Colors.orangeAccent, Colors.redAccent],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                      borderRadius: BorderRadius.circular(20),
+                      // border: Border.all(color: Colors.blueGrey)
 
-              SizedBox(height: 20,),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account?"),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
-              }, 
-              
-              child: 
-                Text("Sign Up"),
-              )
-
-                ],
-              ),
-
-              SizedBox(height: 10,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Or"),
-                ],
-              ),
-              SizedBox(height: 20,),
-              Column(
-                children: [
-                 InkWell(
-                onTap: ()=>{
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Phonenumberscreen())),
-
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 35,
-                  
-                  decoration: BoxDecoration(
-                    // color: Colors.blueGrey,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.blueGrey)
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Login with Phone", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500, color: Colors.black),),
-                      ],
+                    ),
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Login with Phone", style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600, color: Colors.white),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-
-                ],
-              ),
-
-
-
-            ],
+        
+                  ],
+                ),
+        
+        
+        
+              ],
+            ),
           ),
         ),
       ),
