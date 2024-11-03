@@ -1,18 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:infotrack/main.dart';
 import 'package:infotrack/mainscreen/aboutscreen.dart';
-import 'package:infotrack/mainscreen/profilescreen.dart';
+import 'package:infotrack/mainscreen/editprofilescreen.dart';
+import 'package:infotrack/mainscreen/firstscreen.dart';
 
-class Firstscreen extends StatefulWidget {
-  const Firstscreen({super.key});
+class Profilescreen extends StatefulWidget {
+  const Profilescreen({super.key});
 
   @override
-  State<Firstscreen> createState() => _FirstscreenState();
+  State<Profilescreen> createState() => _ProfilescreenState();
 }
 
-class _FirstscreenState extends State<Firstscreen> {
-
+class _ProfilescreenState extends State<Profilescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(  
@@ -24,67 +22,55 @@ class _FirstscreenState extends State<Firstscreen> {
           [Colors.blueAccent,Colors.deepPurpleAccent],
           begin: Alignment.topLeft,
             end: Alignment.bottomRight,)
-          
         ),
         child: Center(child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 130, bottom: 30),
-            child: Container(
-              height: 150,
-              width: 150,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/splashbg1.png"),
-                fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: Colors.deepPurpleAccent)
-              // color: Colors.red,
-              ),
+
+        Container(
+                    
+          child: Center(
+            child: Column(
+             
+                children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.white30,
+
+                    ),
+                    Text("Name"),
+                    Text("Name"),
+                    Text("Name"),
+                    Text("Name"),
+                    Text("Name"),
+                    Text("Name"),
+                    Text("Name"),
+
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
+                      },
+                      child: Container(
+                        height: 35,
+                        width: 100,
+                        color: Colors.white,
+                        child: Center(child: Text("Edit Profile")),
+                      ),
+                    ),
+
+                ],
+            ),
+          ),
+        ),
+
             
-            ),
-          ),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          // Expanded(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: LinearGradient(colors: 
-                  [
-                    Colors.deepPurpleAccent, Colors.blueAccent
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight
-                  )
-                ),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text("Infotrack is an innovative app created by Alok Kumar Yadav with the primary goal of helping users securely store and easily track their personal information. With a user-friendly design, Infotrack enables you to organize your data efficiently, making it accessible whenever you need it. Whether you’re managing personal details, professional records, or any essential information, Infotrack is built to keep everything in one place for seamless access. Alok's vision for Infotrack is to provide a reliable solution that simplifies data management while prioritizing security, giving users complete control over their information.",
-                        style: TextStyle(fontSize: 16,color: Colors.white70,),
-                        textAlign: TextAlign.justify,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
           
+          
+
           Spacer(),
-          Container(
+           Container(
             
             height: 60,
             width: double.infinity,
@@ -98,7 +84,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
                         },
                         child: Container(
                           width: 60,
@@ -137,7 +123,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
                         },
                         child: Container(
                           width: 60,
@@ -159,12 +145,11 @@ class _FirstscreenState extends State<Firstscreen> {
             ),
           ),
     
+    
       ],
     ),
 
     ),
-
-    
 
       ),
       

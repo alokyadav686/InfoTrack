@@ -24,10 +24,10 @@ class _SplashscreenState extends State<Splashscreen> {
  
     Timer(Duration(seconds: 3),(){
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
+      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
     
-    super.initState();
     splashscreen.islogin(context);
+    super.initState();
     }); 
 
     

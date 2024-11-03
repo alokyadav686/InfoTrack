@@ -102,8 +102,7 @@ void login(){
                       prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
                       border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
+                             ),
                           
                     ),
         
@@ -128,7 +127,6 @@ void login(){
                       prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
                       border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(color: Colors.white),
                               
                             ),
                           

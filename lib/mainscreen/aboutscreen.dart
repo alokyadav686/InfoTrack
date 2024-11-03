@@ -1,18 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:infotrack/main.dart';
-import 'package:infotrack/mainscreen/aboutscreen.dart';
+import 'package:infotrack/mainscreen/firstscreen.dart';
 import 'package:infotrack/mainscreen/profilescreen.dart';
 
-class Firstscreen extends StatefulWidget {
-  const Firstscreen({super.key});
+class Aboutscreen extends StatefulWidget {
+  const Aboutscreen({super.key});
 
   @override
-  State<Firstscreen> createState() => _FirstscreenState();
+  State<Aboutscreen> createState() => _AboutscreenState();
 }
 
-class _FirstscreenState extends State<Firstscreen> {
-
+class _AboutscreenState extends State<Aboutscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(  
@@ -21,10 +18,7 @@ class _FirstscreenState extends State<Firstscreen> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: 
-          [Colors.blueAccent,Colors.deepPurpleAccent],
-          begin: Alignment.topLeft,
-            end: Alignment.bottomRight,)
-          
+          [Colors.blueAccent,Colors.deepPurpleAccent])
         ),
         child: Center(child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,7 +30,7 @@ class _FirstscreenState extends State<Firstscreen> {
               height: 150,
               width: 150,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/splashbg1.png"),
+                image: DecorationImage(image: AssetImage("assets/images/logo1.png"),
                 fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(100),
                 border: Border.all(color: Colors.deepPurpleAccent)
@@ -82,9 +76,9 @@ class _FirstscreenState extends State<Firstscreen> {
               ),
             ),
           ),
-          
+
           Spacer(),
-          Container(
+           Container(
             
             height: 60,
             width: double.infinity,
@@ -98,7 +92,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
                         },
                         child: Container(
                           width: 60,
@@ -117,7 +111,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Aboutscreen()));
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>Aboutscreen()));
                         },
                         child: Container(
                         
@@ -159,12 +153,11 @@ class _FirstscreenState extends State<Firstscreen> {
             ),
           ),
     
+    
       ],
     ),
 
     ),
-
-    
 
       ),
       
