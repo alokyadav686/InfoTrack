@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:infotrack/mainscreen/profilescreen.dart';
+import 'package:infotrack/utils/utils.dart';
 
 class Editprofilescreen extends StatefulWidget {
   const Editprofilescreen({super.key});
@@ -21,14 +22,14 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
     final skillscontroller =TextEditingController();
     final gendercontroller =TextEditingController();
 
-    final databaseref = FirebaseDatabase.instance.ref('name');
+    // final databaseref = FirebaseDatabase.instance.ref('name');
 
     savechanges(String name, String stid, String rollnum, String branch, String sec, String skill, String gen,)async{
       if(name =="" && stid=='' && rollnum=='' && branch=='' && sec=='' && skill=='' && gen==''){
         print("enter all field");
       }
       else{
-        FirebaseFirestore.instance.collection(DateTime.now().microsecondsSinceEpoch.toString()).doc(name).set({
+        FirebaseFirestore.instance.collection("user").doc(DateTime.now().microsecondsSinceEpoch.toString()).set({
           'name': name,
           'student id' : stid,
           'roll number': rollnum,
@@ -197,6 +198,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                         //     'id': 1,
                         // });
                         savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),branchcontroller.text.toString(),sectioncontroller.text.toString(),skillscontroller.text.toString(),gendercontroller.text.toString());
+                        utils().toastMessage("Changes Saved");
                       },
                       child: Container(
                         height: 35,

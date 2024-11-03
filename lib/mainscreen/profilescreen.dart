@@ -1,3 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:infotrack/mainscreen/aboutscreen.dart';
 import 'package:infotrack/mainscreen/editprofilescreen.dart';
@@ -11,6 +15,10 @@ class Profilescreen extends StatefulWidget {
 }
 
 class _ProfilescreenState extends State<Profilescreen> {
+
+  // final DatabaseReference reff = FirebaseDatabase.instance.ref('user');
+  final firestore = FirebaseFirestore.instance.collection("user").snapshots();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(  
@@ -34,20 +42,7 @@ class _ProfilescreenState extends State<Profilescreen> {
             child: Column(
              
                 children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.white30,
-
-                    ),
-                    Text("Name"),
-                    Text("Name"),
-                    Text("Name"),
-                    Text("Name"),
-                    Text("Name"),
-                    Text("Name"),
-                    Text("Name"),
-
+                    
                     InkWell(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
@@ -59,6 +54,30 @@ class _ProfilescreenState extends State<Profilescreen> {
                         child: Center(child: Text("Edit Profile")),
                       ),
                     ),
+
+                    
+                    
+
+                    StreamBuilder<QuerySnapshot>(
+                      stream: firestore, 
+                      builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+
+                            if(snapshot.hasError){
+                              return Text("Some Error");
+                            }
+                        return Expanded(
+                          child: ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index){
+                            return ListTile(
+                              title: Text(snapshot.data!.docs[index]['name'].toString()),
+                            );
+                                              }),
+                        );
+                      }
+
+                    ),
+
 
                 ],
             ),
