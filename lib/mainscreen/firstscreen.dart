@@ -71,10 +71,18 @@ class _FirstscreenState extends State<Firstscreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Text("Coming Soon..",
-                        style: TextStyle(fontSize: 16,color: Colors.white70,),
+                        child: Text("Welcome to InfoTrack!",
+                        style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white70,),
                         textAlign: TextAlign.justify,
                         ),
+                        
+                      ),
+                      SizedBox(height: 8,),
+                      Padding(
+                        
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Text("Your go-to app for tracking information seamlessly. Explore the features we offer.",style: TextStyle(fontSize: 16,color: Colors.white70),
+                        textAlign: TextAlign.center,),
                       )
                     ],
                   ),
