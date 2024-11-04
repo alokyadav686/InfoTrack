@@ -106,8 +106,8 @@ class _FirstscreenState extends State<Firstscreen> {
                           // color: Colors.red,
                           child: Column(
                             children: [
-                              Icon(Icons.home_outlined),
-                              Text("Home"),
+                              Icon(Icons.home_outlined,color: Colors.white,),
+                              Text("Home",style: TextStyle(color: Colors.white),),
                             ],
                           ),
                         ),
@@ -126,8 +126,8 @@ class _FirstscreenState extends State<Firstscreen> {
                           // color: Colors.red,
                           child: Column(
                             children: [
-                              Icon(Icons.info_outline_rounded),
-                              Text("About"),
+                              Icon(Icons.info_outline_rounded,color: Colors.white,),
+                              Text("About",style: TextStyle(color: Colors.white),),
                             ],
                           ),
                         ),
@@ -145,8 +145,8 @@ class _FirstscreenState extends State<Firstscreen> {
                           // color: Colors.red,
                           child: Column(
                             children: [
-                              Icon(Icons.account_circle_outlined),
-                              Text("Profile"),
+                              Icon(Icons.account_circle_outlined,color: Colors.white,),
+                              Text("Profile",style: TextStyle(color: Colors.white),),
                             ],
                           ),
                         

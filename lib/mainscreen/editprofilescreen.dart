@@ -94,7 +94,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                             controller: studentnumbercontroller,
                             
                             decoration: InputDecoration(
-                              hintText: "Stundent Number",
+                              hintText: "Student Number",
                               hintStyle: TextStyle(color: Colors.white),
                               hintFadeDuration: Duration(microseconds: 20),
                               border: OutlineInputBorder(
