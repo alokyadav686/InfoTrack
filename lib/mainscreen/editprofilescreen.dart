@@ -29,7 +29,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
         print("enter all field");
       }
       else{
-        FirebaseFirestore.instance.collection("user").doc(DateTime.now().microsecondsSinceEpoch.toString()).set({
+        FirebaseFirestore.instance.collection("user").doc("allinfo").set({
           'name': name,
           'student id' : stid,
           'roll number': rollnum,
