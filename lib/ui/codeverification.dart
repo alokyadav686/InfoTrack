@@ -18,61 +18,58 @@ class _CodeverificationState extends State<Codeverification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-          
-                SizedBox(
-                  height: 30,
-                ),
-                Column(
-                 children: [
-                  TextFormField(
-                    controller: verificationcodecontroller,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      hintText: "6 digit code",
-                      prefixIcon: Icon(Icons.phone),
-                      errorText: verificationcodecontroller.text.length != 6 ? "Invalid code" : null,
-                    ),
-                    
+      
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: 
+          [Colors.blueAccent,Colors.deepPurpleAccent],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight)
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            
+                  Column(
+                    children: [
+                      Text("Enter your phone number",style: TextStyle(fontSize: 28,color: Colors.white,fontWeight: FontWeight.bold),),
+                    ],
                   ),
-                 ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: ()async {
-
-                        final crr = PhoneAuthProvider.credential(
-                          verificationId: widget.verificationId, 
-                          smsCode: verificationcodecontroller.text.toString());
-
-                        try{
-
-                            // await auth.signInWithCredential(crr);
-                            
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
-
-                        }catch(e){
-
-                          utils().toastMessage(e.toString());
-
-                        }
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Column(
+                   children: [
+                    TextFormField(
+                      // controller: phonenumbercontroller,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: "+91 000 000 0000",
+                        hintStyle: TextStyle(color: Colors.white70),
+                        prefixIcon: Icon(Icons.phone,color: Colors.white,),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                      ),
                       
-
-                      },
-                      child: Container(
-                        height: 35,
-                        width: double.infinity,
+                    ),
+                   ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 45,
+                        width: 150,
                         decoration: BoxDecoration(
-                          color: Colors.blueGrey,
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           
                         ),
@@ -80,21 +77,23 @@ class _CodeverificationState extends State<Codeverification> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Verify",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.white),),
+                            Text("Login",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.deepPurple),),
                           ],
                         ),
                       ),
                       
                       ),
-                    ),
-                  ],
-                ),
-          
-          
-            ],
+                      SizedBox(height: 20,),
+                     ],
+                  ),
+            
+            
+              ],
+            ),
           ),
         ),
       ),
+
     );
   }
 }

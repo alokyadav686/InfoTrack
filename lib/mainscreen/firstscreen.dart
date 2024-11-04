@@ -71,7 +71,7 @@ class _FirstscreenState extends State<Firstscreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: Text("Infotrack is an innovative app created by Alok Kumar Yadav with the primary goal of helping users securely store and easily track their personal information. With a user-friendly design, Infotrack enables you to organize your data efficiently, making it accessible whenever you need it. Whether you’re managing personal details, professional records, or any essential information, Infotrack is built to keep everything in one place for seamless access. Alok's vision for Infotrack is to provide a reliable solution that simplifies data management while prioritizing security, giving users complete control over their information.",
+                        child: Text("Coming Soon..",
                         style: TextStyle(fontSize: 16,color: Colors.white70,),
                         textAlign: TextAlign.justify,
                         ),
