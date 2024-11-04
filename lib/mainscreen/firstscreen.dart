@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:infotrack/main.dart';
 import 'package:infotrack/mainscreen/aboutscreen.dart';
+import 'package:infotrack/mainscreen/editprofilescreen.dart';
 import 'package:infotrack/mainscreen/profilescreen.dart';
 
 class Firstscreen extends StatefulWidget {
@@ -83,7 +84,18 @@ class _FirstscreenState extends State<Firstscreen> {
                         padding: const EdgeInsets.only(bottom: 15.0),
                         child: Text("Your go-to app for tracking information seamlessly. Explore the features we offer.",style: TextStyle(fontSize: 16,color: Colors.white70),
                         textAlign: TextAlign.center,),
-                      )
+                      ),
+                      SizedBox(height: 20,),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
+                        },
+                        child: Container(
+                          height: 50,
+                          color: Colors.white60,
+                          child: Center(child: Text("Setup Your Profile",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),)),
+                        ),
+                      ),
                     ],
                   ),
                 ),
