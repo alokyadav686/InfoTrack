@@ -199,6 +199,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                         // });
                         savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),branchcontroller.text.toString(),sectioncontroller.text.toString(),skillscontroller.text.toString(),gendercontroller.text.toString());
                         utils().toastMessage("Changes Saved");
+                        Navigator.pop(context);
                       },
                       child: Container(
                         height: 35,

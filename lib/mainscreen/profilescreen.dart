@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:infotrack/mainscreen/aboutscreen.dart';
+import 'package:infotrack/mainscreen/editprofilepic.dart';
 import 'package:infotrack/mainscreen/editprofilescreen.dart';
 import 'package:infotrack/mainscreen/firstscreen.dart';
 import 'package:infotrack/ui/loginscreen.dart';
@@ -56,14 +57,19 @@ class _ProfilescreenState extends State<Profilescreen> {
               
             ),
             SizedBox(height: 10,),
-            Container(
-              height: 20,
-              width: 80,
-              decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.white60,
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilepic()));
+              },
+              child: Container(
+                height: 20,
+                width: 80,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white60,
+                ),
+                child: Center(child: Text("Edit Profile")),
               ),
-              child: Center(child: Text("Edit Profile")),
             ),
             
         
