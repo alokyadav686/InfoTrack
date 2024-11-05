@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:infotrack/utils/utils.dart';
 
 class Editprofilepic extends StatefulWidget {
   const Editprofilepic({super.key});
@@ -25,7 +26,7 @@ class _EditprofilepicState extends State<Editprofilepic> {
         _image = File(pickedfile.path);
     }
     else{
-      print ("please pick a file");
+      utils().toastMessage("please pick a file");
     }
     });
   }
