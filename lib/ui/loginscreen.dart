@@ -184,7 +184,7 @@ void login(){
                   children: [
                     Text("Don't have an account?",style: TextStyle(color: Colors.white,),),
                 TextButton(onPressed: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
                 }, 
                 
                 child: 
