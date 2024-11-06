@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/services.dart';
 import 'package:infotrack/mainscreen/profilescreen.dart';
 import 'package:infotrack/utils/utils.dart';
 
@@ -140,7 +141,9 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                                                             
 
                               ),
+                              
                             ),
+                            style: TextStyle(color: Colors.white),
                             validator: (value) {
                               if(value!.isEmpty){
                                 return "Enter your Name";
@@ -157,6 +160,9 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                           TextFormField(
                             controller: studentnumbercontroller,
                             keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
                             
                             decoration: InputDecoration(
                               hintText: "Student Number",
@@ -168,6 +174,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                               ),
                               
                             ),
+                            style: TextStyle(color: Colors.white),
                             validator: (value) {
                               if(value!.isEmpty){
                                 return "Enter Student ID";
@@ -184,9 +191,16 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                           TextFormField(
                             controller: rollnumbercontroller,
                             keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+
+                            
                             
                             decoration: InputDecoration(
                               hintText: "Roll Number",
+
+
                               hintStyle: TextStyle(color: Colors.white),
                               hintFadeDuration: Duration(microseconds: 20),
                               border: OutlineInputBorder(
@@ -194,6 +208,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                               ),
                             ),
+                            style: TextStyle(color: Colors.white),
                             validator: (value){
                               if (value!.isEmpty){
                                 return "enter roll number";
@@ -227,8 +242,8 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                             items: branchdrop.map(
                             (i) {
                               return DropdownMenuItem(child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(i),
+                                padding: const EdgeInsets.only(left: 0),
+                                child: Text(i,style: TextStyle(fontSize: 16,color: Colors.white),),
                               ),value: i,);
                             }
                           ).toList(),
@@ -242,7 +257,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                           },
                             icon:Icon(Icons.arrow_drop_down_sharp,color: Colors.white,),
-                            dropdownColor: Colors.white,
+                            dropdownColor: Colors.blueAccent,
                             decoration: InputDecoration(
                                                            
                               // hintText: "Branch",
@@ -276,8 +291,8 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                             items: sectiomdrop.map(
                             (i) {
                               return DropdownMenuItem(child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(i),
+                                padding: const EdgeInsets.only(left: 0.0),
+                                child: Text(i,style: TextStyle(fontSize: 16,color: Colors.white),),
                               ),value: i,);
                             }
                           ).toList(),
@@ -291,7 +306,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                           },
                             icon:Icon(Icons.arrow_drop_down_sharp,color: Colors.white,),
-                            dropdownColor: Colors.white,
+                            dropdownColor: Colors.blueAccent,
                             decoration: InputDecoration(
                                                            
                               // hintText: "Branch",
@@ -311,6 +326,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                             keyboardType: TextInputType.text,
                             
                             decoration: InputDecoration(
+                              
                               hintText: "Skills",
                               hintStyle: TextStyle(color: Colors.white),
                               hintFadeDuration: Duration(microseconds: 20),
@@ -320,6 +336,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                               ),
                             ),
+                            style: TextStyle(color: Colors.white),
                           ),
                           SizedBox(height: 10,),
 
@@ -417,8 +434,8 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                             items: genderdrop.map(
                             (i) {
                               return DropdownMenuItem(child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(i),
+                                padding: const EdgeInsets.only(left: 0),
+                                child: Text(i,style: TextStyle(fontSize: 16,color: Colors.white),),
                               ),value: i,);
                             }
                           ).toList(),
@@ -432,7 +449,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                           },
                             icon:Icon(Icons.arrow_drop_down_sharp,color: Colors.white,),
-                            dropdownColor: Colors.white,
+                            dropdownColor: Colors.blueAccent,
                             decoration: InputDecoration(
                                                            
                               // hintText: "Branch",
@@ -456,14 +473,20 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                         //     'id': 1,
                         // });
 
-                        savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),selectedbranch.toString(),selectedsec.toString(),skillscontroller.text.toString(),selectedgender.toString());
+                        if(studentnumbercontroller.text.toString().length==7){
+                          savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),selectedbranch.toString(),selectedsec.toString(),skillscontroller.text.toString(),selectedgender.toString());
                         
                         if(validatorkey.currentState!.validate()){
         
                         
                         print("everything is filled");
+                        }
                         
                       }
+                      else{
+                          utils().toastMessage("student number should be of 7 digits");
+                          // print(object)
+                        }
 
 
                       },

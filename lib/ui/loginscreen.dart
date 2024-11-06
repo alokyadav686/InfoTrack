@@ -105,7 +105,7 @@ void login(){
                              ),
                           
                     ),
-        
+                    style: TextStyle(color: Colors.white),
                     validator: (value){
                         if(value!.isEmpty){
                           return 'Enter email';
@@ -130,7 +130,9 @@ void login(){
                               
                             ),
                           
+                          
                     ),
+                    style: TextStyle(color: Colors.white),
                     validator: (value){
                         if(value!.isEmpty){
                           return "Enter password";

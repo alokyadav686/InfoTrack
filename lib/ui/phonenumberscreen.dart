@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:infotrack/ui/codeverification.dart';
 import 'package:infotrack/ui/loginscreen.dart';
 import 'package:infotrack/utils/utils.dart';
@@ -59,7 +60,10 @@ class _PhonenumberscreenState extends State<Phonenumberscreen> {
                    children: [
                     TextFormField(
                       controller: phonenumbercontroller,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.text,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
                       decoration: InputDecoration(
                         hintText: "+91 000 000 0000",
                         hintStyle: TextStyle(color: Colors.white70),
@@ -68,7 +72,7 @@ class _PhonenumberscreenState extends State<Phonenumberscreen> {
                           borderRadius: BorderRadius.circular(30)
                         ),
                       ),
-                      
+                      style: TextStyle(color: Colors.white),
                     ),
                    ],
                   ),

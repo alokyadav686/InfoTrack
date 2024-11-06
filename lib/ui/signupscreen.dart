@@ -90,6 +90,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               borderSide: BorderSide(color: Colors.white),
                             ),
                     ),
+                    style: TextStyle(color: Colors.white),
         
                     validator: (value){
                         if(value!.isEmpty){
@@ -116,6 +117,7 @@ class _SignupscreenState extends State<Signupscreen> {
                             ),
                       // suffixIcon: Icon(Icons.remove_red_eye_outlined),
                     ),
+                    style: TextStyle(color: Colors.white),
                     validator: (value){
                         if(value!.isEmpty){
                           return "Enter password";
@@ -140,6 +142,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               borderSide: BorderSide(color: Colors.white),
                             ),
                     ),
+                    style: TextStyle(color: Colors.white),
                     validator: (value){
                         if(value!.isEmpty){
                             return "enter confirm password";
