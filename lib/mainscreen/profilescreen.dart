@@ -59,7 +59,7 @@ class _ProfilescreenState extends State<Profilescreen> {
             SizedBox(height: 10,),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Editprofilepic()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilepic()));
               },
               child: Container(
                 height: 20,
@@ -136,7 +136,7 @@ class _ProfilescreenState extends State<Profilescreen> {
         
                       InkWell(
                         onTap: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Editprofilescreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Editprofilescreen()));
                         },
                         child: Container(
                           height: 35,

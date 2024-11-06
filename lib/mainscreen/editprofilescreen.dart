@@ -488,6 +488,8 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                           // print(object)
                         }
 
+                        // Navigator.pop();
+
 
                       },
                       child: Container(

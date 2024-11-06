@@ -88,7 +88,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       SizedBox(height: 20,),
                       InkWell(
                         onTap: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
                         },
                         child: Container(
                           height: 50,
