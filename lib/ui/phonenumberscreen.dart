@@ -96,7 +96,7 @@ class _PhonenumberscreenState extends State<Phonenumberscreen> {
         
                             codeSent: (String verificationId ,int? code){
         
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Codeverification(verificationId: verificationId,)));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Codeverification(verificationId: verificationId,)));
         
                             },
         
@@ -134,7 +134,7 @@ class _PhonenumberscreenState extends State<Phonenumberscreen> {
 
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
                             },
                             child: Container(
                               height: 45,

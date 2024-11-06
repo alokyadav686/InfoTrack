@@ -205,7 +205,7 @@ class _SignupscreenState extends State<Signupscreen> {
                   children: [
                     Text("Already have an account?",style: TextStyle(fontSize: 16, color: Colors.white),),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Loginscreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Loginscreen()));
                 }, 
                 
                 child: 

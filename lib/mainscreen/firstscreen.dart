@@ -88,7 +88,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       SizedBox(height: 20,),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Editprofilescreen()));
                         },
                         child: Container(
                           height: 50,
@@ -137,7 +137,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Aboutscreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Aboutscreen()));
                         },
                         child: Container(
                         
@@ -157,7 +157,7 @@ class _FirstscreenState extends State<Firstscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
                         },
                         child: Container(
                           width: 60,

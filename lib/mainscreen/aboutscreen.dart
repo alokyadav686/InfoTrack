@@ -92,7 +92,7 @@ class _AboutscreenState extends State<Aboutscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
                         },
                         child: Container(
                           width: 60,
@@ -131,7 +131,7 @@ class _AboutscreenState extends State<Aboutscreen> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
                         },
                         child: Container(
                           width: 60,

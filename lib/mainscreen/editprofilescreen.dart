@@ -19,10 +19,10 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
     final namecontroller =TextEditingController();
     final studentnumbercontroller =TextEditingController();
     final rollnumbercontroller =TextEditingController();
-    final branchcontroller =TextEditingController();
-    final sectioncontroller =TextEditingController();
+    // final branchcontroller =TextEditingController();
+    // final sectioncontroller =TextEditingController();
     final skillscontroller =TextEditingController();
-    final gendercontroller =TextEditingController();
+    // final gendercontroller =TextEditingController();
 
     String selectedskill = 'Skills';
     bool isOpen=false;
@@ -30,8 +30,11 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
     _EditprofilescreenState(){
       selectedbranch=branchdrop[0];
       selectedsec=sectiomdrop[0];
+      selectedgender=genderdrop[0];
 
     }
+
+    
     
     
 
@@ -76,8 +79,18 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
       '4',
     ];
 
+    final genderdrop=[
+      'Male',
+      'Female',
+      'Others',
+      
+    ];  
     String? selectedbranch='';
     String? selectedsec='';
+    String? selectedgender='';
+
+    final validatorkey = GlobalKey<FormState>();
+
 
 
   @override
@@ -101,10 +114,15 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                     children: [
                       SizedBox(height: 100,),
 
-                        Container(
-                          width: double.infinity,
-                          child: Text("Edit Profile", 
-                          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white))),
+                        Form(
+
+                          key: validatorkey,
+
+                          child: Container(
+                            width: double.infinity,
+                            child: Text("Edit Profile", 
+                            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white))),
+                        ),
 
                           // Text("Name"),
                           SizedBox(height: 20),
@@ -123,6 +141,14 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                               ),
                             ),
+                            validator: (value) {
+                              if(value!.isEmpty){
+                                return "Enter your Name";
+                              }
+                              else{
+                                return null;
+                              }
+                            },
                           ),
 
                           
@@ -142,6 +168,15 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                               ),
                               
                             ),
+                            validator: (value) {
+                              if(value!.isEmpty){
+                                return "Enter Student ID";
+
+                              }
+                              else{
+                                return null;
+                              }
+                            },
                           ),
 
                           // Text("Roll Number"),
@@ -159,6 +194,15 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                               ),
                             ),
+                            validator: (value){
+                              if (value!.isEmpty){
+                                return "enter roll number";
+                              }
+                              else{
+                                return null;
+
+                              }
+                            },
                           ),
 
                           // Text("Branch"),
@@ -353,20 +397,53 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
 
                           //  Text("Gender"),
                           SizedBox(height: 20),
-                          TextFormField(
-                            controller: gendercontroller,
-                            keyboardType: TextInputType.text,
+                          // TextFormField(
+                          //   controller: gendercontroller,
+                          //   keyboardType: TextInputType.text,
                             
-                            decoration: InputDecoration(
-                              hintText: "Gender",
-                              hintStyle: TextStyle(color: Colors.white),
-                              hintFadeDuration: Duration(microseconds: 20),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
+                          //   decoration: InputDecoration(
+                          //     hintText: "Gender",
+                          //     hintStyle: TextStyle(color: Colors.white),
+                          //     hintFadeDuration: Duration(microseconds: 20),
+                          //     border: OutlineInputBorder(
+                          //       borderRadius: BorderRadius.circular(8),
 
-                              ),
+                          //     ),
+                          //   ),
+                          // ),
+                          DropdownButtonFormField(
+                            
+                            value: selectedgender,
+                            items: genderdrop.map(
+                            (i) {
+                              return DropdownMenuItem(child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(i),
+                              ),value: i,);
+                            }
+                          ).toList(),
+                          
+                          
+                           onChanged: (val){
+                              setState(() {
+                                selectedgender =val as String;
+                                
+                              });
+
+                          },
+                            icon:Icon(Icons.arrow_drop_down_sharp,color: Colors.white,),
+                            dropdownColor: Colors.white,
+                            decoration: InputDecoration(
+                                                           
+                              // hintText: "Branch",
+                              label: Text("Gender",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8)
+                              )
                             ),
                           ),
+
 
                           SizedBox(height: 30,),
 
@@ -378,8 +455,17 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                         //     'title': namecontroller.text.toString(),
                         //     'id': 1,
                         // });
-                        savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),selectedbranch.toString(),selectedsec.toString(),skillscontroller.text.toString(),gendercontroller.text.toString());
+
+                        savechanges(namecontroller.text.toString(), studentnumbercontroller.text.toString(),rollnumbercontroller.text.toString(),selectedbranch.toString(),selectedsec.toString(),skillscontroller.text.toString(),selectedgender.toString());
                         
+                        if(validatorkey.currentState!.validate()){
+        
+                        
+                        print("everything is filled");
+                        
+                      }
+
+
                       },
                       child: Container(
                         height: 35,
@@ -396,7 +482,7 @@ class _EditprofilescreenState extends State<Editprofilescreen> {
                     SizedBox(height: 30,),
                        InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Profilescreen()));
 
                       },
                       child: Container(

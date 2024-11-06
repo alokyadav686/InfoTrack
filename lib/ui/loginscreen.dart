@@ -38,7 +38,7 @@ void login(){
     email: emailController.text.toString(), 
     password: passwordController.text.toString()).then((value){
       utils().toastMessage(value.user!.email.toString());
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
 
     }).onError((error, stackTrace){
       utils().toastMessage(error.toString());
@@ -182,7 +182,7 @@ void login(){
                   children: [
                     Text("Don't have an account?",style: TextStyle(color: Colors.white,),),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Signupscreen()));
                 }, 
                 
                 child: 
@@ -205,7 +205,7 @@ void login(){
                    InkWell(
                   onTap: ()=>{
         
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Phonenumberscreen()))
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Phonenumberscreen()))
         
                   },
                   child: Container(

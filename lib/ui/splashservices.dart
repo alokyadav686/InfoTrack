@@ -12,11 +12,11 @@ class Splashservices {
     final user = auth.currentUser;
 
     if(user!= null){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Firstscreen()));
 
     }
     else{
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
     }
     
   }

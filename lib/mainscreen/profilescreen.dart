@@ -59,7 +59,7 @@ class _ProfilescreenState extends State<Profilescreen> {
             SizedBox(height: 10,),
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Editprofilepic()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Editprofilepic()));
               },
               child: Container(
                 height: 20,
@@ -136,7 +136,7 @@ class _ProfilescreenState extends State<Profilescreen> {
         
                       InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Editprofilescreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Editprofilescreen()));
                         },
                         child: Container(
                           height: 35,
@@ -154,7 +154,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                         onTap: () {
                           auth.signOut().then((value){
         
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Loginscreen()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Loginscreen()));
                           }).onError((error, stackTrace) {
                             utils().toastMessage(error.toString());
                           });
@@ -184,7 +184,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Firstscreen()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Firstscreen()));
                             },
                             child: Container(
                               width: 60,
@@ -202,7 +202,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Aboutscreen()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Aboutscreen()));
                             },
                             child: Container(
                               width: 60,
